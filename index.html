@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="css/style.css">
         <title>Boolzapp</title>
     </head>
-    <body class="debug">
+    <body >
         <div class="ms_graphic-topBg"></div>
         
         <div id="app">
@@ -67,16 +67,16 @@
                             <!-- SEARCH -->
                             <form id="search-bar" class="d-flex align-items-center flex-grow-1" role="search">
                                 <div class="input-group m-1">
-                                    <span class="input-group-text bg-white rounded-0 border border-end-0 ps-4 pe-4 ms_border-search-color ms-card-options ms_icons-color" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                    <input class="form-control ps-2 border ms_border-search-color bg-white" type="search" placeholder="Cerca o inizia una nuova chat">
+                                    <span class="input-group-text bg-white rounded-0 border border-end-0 ps-4 pe-4 ms-card-options ms_icons-color" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                    <input class="form-control ps-2 border bg-white" type="search" placeholder="Cerca o inizia una nuova chat">
                                 </div>
                             </form>
                             <!-- CONVERSATIONS -->
-                            <ul id="conversations-list" class="overflow-y-auto p-0">
+                            <ul id="conversations-list" class="overflow-y-auto p-0 bg-white">
 
-                                <!-- ASIDE CONVERSATION CARD -->
+                                <!-- ASIDE CONVERSATIONS CARD -->
                                 
-                                <li class="card rounded-0 border-0">
+                                <li class="card rounded-0 border-0 border-top  ms_selected-contact">
                                     <div class="d-flex ps-4 p-2">
                                         <div class="d-flex align-items-center me-2">
                                             <img src="img/avatar_1.jpg" class="rounded-circle" alt="User profile image">
@@ -90,8 +90,8 @@
                                         </div>
                                     </div>
                                 </li>
-
-                                <li class="card rounded-0 border-0">
+                                
+                                <li class="card rounded-0 border-0 border-top">
                                     <div class="d-flex ps-4 p-2">
                                         <div class="d-flex align-items-center me-2">
                                             <img src="img/avatar_1.jpg" class="rounded-circle" alt="User profile image">
@@ -105,8 +105,8 @@
                                         </div>
                                     </div>
                                 </li>
-
-                                <li class="card rounded-0 border-0">
+                                
+                                <li class="card rounded-0 border-0 border-top">
                                     <div class="d-flex ps-4 p-2">
                                         <div class="d-flex align-items-center me-2">
                                             <img src="img/avatar_1.jpg" class="rounded-circle" alt="User profile image">
@@ -120,8 +120,8 @@
                                         </div>
                                     </div>
                                 </li>
-
-                                <li class="card rounded-0 border-0">
+                                
+                                <li class="card rounded-0 border-0 border-top">
                                     <div class="d-flex ps-4 p-2">
                                         <div class="d-flex align-items-center me-2">
                                             <img src="img/avatar_1.jpg" class="rounded-circle" alt="User profile image">
@@ -135,96 +135,9 @@
                                         </div>
                                     </div>
                                 </li>
+                                
 
-                                <li class="card rounded-0 border-0">
-                                    <div class="d-flex ps-4 p-2">
-                                        <div class="d-flex align-items-center me-2">
-                                            <img src="img/avatar_1.jpg" class="rounded-circle" alt="User profile image">
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between flex-grow-1">
-                                            <div class="ms_card-text">
-                                                <h5 class="card-title fs-6 fw-normal mb-0">Michele</h5>
-                                                <p class="card-text ms_message-preview ms_soft-text">Ultimo messaggio inviato</p>                                            
-                                            </div>
-                                            <p class="ms_message-preview ms_soft-text">12:00</p>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="card rounded-0 border-0">
-                                    <div class="d-flex ps-4 p-2">
-                                        <div class="d-flex align-items-center me-2">
-                                            <img src="img/avatar_1.jpg" class="rounded-circle" alt="User profile image">
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between flex-grow-1">
-                                            <div class="ms_card-text">
-                                                <h5 class="card-title fs-6 fw-normal mb-0">Michele</h5>
-                                                <p class="card-text ms_message-preview ms_soft-text">Ultimo messaggio inviato</p>                                            
-                                            </div>
-                                            <p class="ms_message-preview ms_soft-text">12:00</p>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="card rounded-0 border-0">
-                                    <div class="d-flex ps-4 p-2">
-                                        <div class="d-flex align-items-center me-2">
-                                            <img src="img/avatar_1.jpg" class="rounded-circle" alt="User profile image">
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between flex-grow-1">
-                                            <div class="ms_card-text">
-                                                <h5 class="card-title fs-6 fw-normal mb-0">Michele</h5>
-                                                <p class="card-text ms_message-preview ms_soft-text">Ultimo messaggio inviato</p>                                            
-                                            </div>
-                                            <p class="ms_message-preview ms_soft-text">12:00</p>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="card rounded-0 border-0">
-                                    <div class="d-flex ps-4 p-2">
-                                        <div class="d-flex align-items-center me-2">
-                                            <img src="img/avatar_1.jpg" class="rounded-circle" alt="User profile image">
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between flex-grow-1">
-                                            <div class="ms_card-text">
-                                                <h5 class="card-title fs-6 fw-normal mb-0">Michele</h5>
-                                                <p class="card-text ms_message-preview ms_soft-text">Ultimo messaggio inviato</p>                                            
-                                            </div>
-                                            <p class="ms_message-preview ms_soft-text">12:00</p>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="card rounded-0 border-0">
-                                    <div class="d-flex ps-4 p-2">
-                                        <div class="d-flex align-items-center me-2">
-                                            <img src="img/avatar_1.jpg" class="rounded-circle" alt="User profile image">
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between flex-grow-1">
-                                            <div class="ms_card-text">
-                                                <h5 class="card-title fs-6 fw-normal mb-0">Michele</h5>
-                                                <p class="card-text ms_message-preview ms_soft-text">Ultimo messaggio inviato</p>                                            
-                                            </div>
-                                            <p class="ms_message-preview ms_soft-text">12:00</p>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="card rounded-0 border-0">
-                                    <div class="d-flex ps-4 p-2">
-                                        <div class="d-flex align-items-center me-2">
-                                            <img src="img/avatar_2.jpg" class="rounded-circle" alt="User profile image">
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between flex-grow-1">
-                                            <div class="ms_card-text">
-                                                <h5 class="card-title fs-6 fw-normal mb-0">Fabio</h5>
-                                                <p class="card-text ms_message-preview ms_soft-text">Ultimo messaggio inviato</p>                                            
-                                            </div>
-                                            <p class="ms_message-preview ms_soft-text">12:00</p>
-                                        </div>
-                                    </div>
-                                </li>
+                                
 
                             </ul>
                             
@@ -262,6 +175,7 @@
                         <div id="main-content">
                             <ul id="message-list" class="d-flex flex-column pb-1 p-5 overflow-y-auto">
 
+                                <!-- MAIN CONTENT MESSAGE -->
                                 <li class="ms_message ms_sent p-2 mb-2 rounded-2">
                                     <p class="m-0">Hai portato a spasso il cane?</p>
                                     <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
@@ -276,136 +190,18 @@
                                     <p class="m-0">Ricordati di sistemare i panni</p>
                                     <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
                                 </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Hai portato a spasso il cane?</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_received p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Hai portato a spasso il cane?</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_received p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Hai portato a spasso il cane?</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_received p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Hai portato a spasso il cane?</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_received p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Hai portato a spasso il cane?</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_received p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Hai portato a spasso il cane?</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_received p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Hai portato a spasso il cane?</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_received p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Hai portato a spasso il cane?</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_sent p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-                                <li class="ms_message ms_received p-2 mb-2 rounded-2">
-                                    <p class="m-0">Ricordati di sistemare i panni</p>
-                                    <p class="m-0 ms_soft-text ms_message-preview text-end">12:00</p>
-                                </li>
-
-
 
 
                             </ul>
                         </div>
 
                         <!-- MAIN FOOT -->
-                        <div id="main-foot">
+                        <div id="main-foot" class="d-flex justify-content-between align-items-center">
+                            <i class="fa-regular fa-face-smile ms-4 me-4"></i>
 
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Scrivi un messaggio...">
+                         
+                            <i class="fa-solid fa-microphone ms-4 me-4"></i>
                         </div>
                     </main>
                 </div>

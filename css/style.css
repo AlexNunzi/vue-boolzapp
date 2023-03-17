@@ -5,10 +5,14 @@
     --bg-head: #EAEAEA;
     --bg-options: #8EDAFC;
     --bg-search: #FAFAFA;
+    --bg-selected-contact: #E9EBEB;
+    --bg-messages: #FFFFFF;
+    --bg-foot: #F3EEEA;
     --color-options: #8EDAFC;
     --color-icons: #B1B1B1;
     --color-soft-text: #B7B8C7;
-    --border-search: #F4F4F4;
+    /* --border-search: #F4F4F4; */
+    /* --border-message: #F8F8F8; */
     --text-link: #537B8E;
     --sent-message: #D5F9BA;
     --received-message: #FFFFFF;
@@ -76,9 +80,13 @@ body{
     background-color: var(--bg-search);
 }
 
-.ms_border-search-color{
-    background-color: var(--border-search);
-}
+/* .ms_border-search-color{
+    border-color: var(--border-search);
+} */
+
+/* .ms_border-message-color{
+    border-color: red;
+} */
 
 .ms_link-color{
     color: var(--text-link);
@@ -142,6 +150,10 @@ body{
     list-style: none;
 }
 
+#conversation-list .card{
+    background-color: var(--bg-messages);
+}
+
 #aside-conversations{
     border-right: 2px solid #D6D6D6;
     height: calc(100% - 210px);
@@ -153,6 +165,10 @@ body{
 
 .ms_message-preview{
     font-size: 0.75rem;
+}
+
+.ms_selected-contact{
+    background-color: var(--bg-selected-contact);
 }
 
 /* MAIN ------------------------------------------------ */
@@ -188,6 +204,7 @@ body{
 
 #main-foot{
     height: 70px;
+    background-color: var(--bg-foot);
 }
 
 
