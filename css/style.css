@@ -53,6 +53,8 @@
 /* REGOLE CSS ------------------------------------------ */
 
 body{
+    height: 100vh;
+    overflow: hidden;
     background-color: var(--bg-body);
 }
 
@@ -89,7 +91,7 @@ body{
     background-color: red;
     position: relative;
     top: -125px;
-    height: 95vh;
+    height: calc(100vh - 50px);
     min-width: 768px;
 }
 
@@ -118,6 +120,15 @@ body{
 
 #aside-options{
     height: 80px;
+}
+
+#search-bar{
+    height: 50px;
+}
+
+#conversations-list{
+    height: calc(100% - 50px);
+    list-style: none;
 }
 
 #aside-conversations{
