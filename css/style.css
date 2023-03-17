@@ -2,7 +2,14 @@
     
     --bg-graphicTop: #009688;
     --bg-body: #DADBD4;
-
+    --bg-head: #EAEAEA;
+    --bg-options: #8EDAFC;
+    --bg-search: #FAFAFA;
+    --color-icons: #B1B1B1;
+    --color-soft-text: #B7B8C7;
+    --border-search: #F4F4F4;
+    --text-link: #537B8E;
+    
 }
 
 /* DEBUG ----------------------------------------------- */
@@ -34,13 +41,13 @@
 }
 
 .debug #aside-options{
-    background-color: #8EDAFC;
-    height: 140px;
+    /* background-color: #8EDAFC; */
+    /* height: 140px; */
 }
 
 .debug #aside-conversations{
-    background-color: #EAEAEA;
-    height: calc(100% - 210px);
+    /* background-color: #EAEAEA;
+    height: calc(100% - 210px); */
 }
 
 /* REGOLE CSS ------------------------------------------ */
@@ -49,7 +56,31 @@ body{
     background-color: var(--bg-body);
 }
 
-.graphic-topBg{
+.ms_bg-head{
+    background-color: var(--bg-head);
+}
+
+.ms_bg-options{
+    background-color: var(--bg-options);
+}
+
+.ms_bg-conversations{
+    background-color: var(--bg-search);
+}
+
+.ms_border-search-color{
+    background-color: var(--border-search);
+}
+
+.ms_link-color{
+    color: var(--text-link);
+}
+
+.ms_soft-text{
+    color: var(--color-soft-text);
+}
+
+.ms_graphic-topBg{
     height: 150px;
     background-color: var(--bg-graphicTop);
 }
@@ -58,8 +89,48 @@ body{
     background-color: red;
     position: relative;
     top: -125px;
-    height: 80vh;
+    height: 95vh;
     min-width: 768px;
+}
+
+.card img{
+    height: 3rem;
+}
+
+.ms_card-options{
+    font-size: 1.5rem;
+}
+
+.ms_icons-color{
+    color: var(--color-icons);
+}
+
+.ms_card-text a{
+    font-size: 0.75rem;
+}
+
+/* ASIDE ----------------------------------------------- */
+
+#aside-head{
+    height: 70px;
+    border-right: 2px solid #D6D6D6;
+}
+
+#aside-options{
+    height: 80px;
+}
+
+#aside-conversations{
+    border-right: 2px solid #D6D6D6;
+    height: calc(100% - 210px);
+}
+
+#aside-conversations .card img{
+    height: 4rem;
+}
+
+.ms_message-preview{
+    font-size: 0.75rem;
 }
 
 /* MAIN ------------------------------------------------ */
@@ -78,14 +149,3 @@ body{
 
 
 
-/* ASIDE ----------------------------------------------- */
-
-#aside-head{
-    height: 70px;
-    border-right: 2px solid #D6D6D6;
-}
-
-#aside-conversations{
-    border-right: 2px solid #D6D6D6;
-    height: calc(100% - 210px);
-}

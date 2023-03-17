@@ -4,39 +4,125 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
         <title>Boolzapp</title>
     </head>
     <body class="debug">
-        <div class="graphic-topBg"></div>
+        <div class="ms_graphic-topBg"></div>
         
         <div id="app">
             <div id="whatsapp" class="container">
                 <div class="row h-100">
-                    <aside class="col-4 p-0">
+
+                    <!-- ASIDE -->
+                    <aside class="col-4 p-0 d-flex flex-column">
+
+                        <!-- ASIDE HEAD -->
                         <div id="aside-head">
 
+                            <!-- ASIDE HEAD CARD -->
+                            <div class="card rounded-0 border-0 ms_bg-head h-100">
+                                <div class="row g-0 h-100 ps-2 pe-3">
+                                    <div class="col-6 d-flex align-items-center h-100">
+                                        <img src="img/avatar_io.jpg" class="rounded-circle" alt="User profile image">
+                                        <h5 class="card-title fs-6 fw-normal mb-0">Sofia</h5>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <div class="ms-card-options ms_icons-color d-flex align-items-center justify-content-end h-100">
+                                            <i class="fa-solid fa-circle-notch ms-3"></i>
+                                            <i class="fa-solid fa-message ms-3"></i>
+                                            <i class="fa-solid fa-ellipsis-vertical ms-3"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
+                        <!-- ASIDE OPTIONS -->
                         <div id="aside-options">
 
+                            <!-- ASIDE OPTIONS CARD -->
+                            <div class="card rounded-0 border-0 ms_bg-options">
+                                <div class="d-flex ps-4 p-3">
+                                    <div class="d-flex align-items-center me-2">
+                                        <img src="img/avatar_io.jpg" class="rounded-circle" alt="User profile image">
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms_card-text">
+                                            <h5 class="card-title fs-6 fw-normal mb-0">Ricevi notifiche di nuovi messaggi</h5>
+                                            <a href="#" class="card-link ms_link-color d-block">Attiva notifiche desktop</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div id="aside-conversations">
+                        <!-- ASIDE CONVERSATIONS -->
+                        <div id="aside-conversations" class="ms_bg-conversations flex-grow-1">
+                            <!-- SEARCH -->
+                            <form class="d-flex align-items-center flex-grow-1" role="search">
+                                <div class="input-group m-1">
+                                    <span class="input-group-text bg-white rounded-0 border border-end-0 ps-4 pe-4 ms_border-search-color ms-card-options ms_icons-color" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                    <input class="form-control ps-2 border ms_border-search-color bg-white" type="search" placeholder="Cerca o inizia una nuova chat">
+                                </div>
+                            </form>
+                            <!-- CONVERSATIONS -->
+                            <div>
+
+                                <!-- ASIDE CONVERSATION CARD -->
+                                <div class="card rounded-0 border-0">
+                                    <div class="d-flex ps-4 p-2">
+                                        <div class="d-flex align-items-center me-2">
+                                            <img src="img/avatar_1.jpg" class="rounded-circle" alt="User profile image">
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between flex-grow-1">
+                                            <div class="ms_card-text">
+                                                <h5 class="card-title fs-6 fw-normal mb-0">Michele</h5>
+                                                <p class="card-text ms_message-preview ms_soft-text">Ultimo messaggio inviato</p>                                            
+                                            </div>
+                                            <p class="ms_message-preview ms_soft-text">12:00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </aside>
 
                     <main class="col-8 p-0">
+
+                        <!-- MAIN HEAD -->
                         <div id="main-head">
 
+                            <!-- MAIN HEAD CARD -->
+                            <div class="card rounded-0 border-0 ms_bg-head h-100">
+                                <div class="row g-0 h-100 ps-2 pe-3">
+                                    <div class="col-6 d-flex align-items-center h-100">
+                                        <img src="img/avatar_io.jpg" class="rounded-circle me-2" alt="User profile image">
+                                        <div class="ms_card-text">
+                                            <h5 class="card-title fs-6 fw-normal mb-0">Michele</h5>
+                                            <p class="card-text ms_message-preview ms_soft-text">Ultimo messaggio oggi alle 12:00</p>                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <div class="ms-card-options ms_icons-color d-flex align-items-center justify-content-end h-100">
+                                            <i class="fa-solid fa-magnifying-glass ms-3"></i>
+                                            <i class="fa-solid fa-paperclip ms-3"></i>
+                                            <i class="fa-solid fa-ellipsis-vertical ms-3"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
+                        <!-- MAIN CONTENT -->
                         <div id="main-content">
 
                         </div>
 
+                        <!-- MAIN FOOT -->
                         <div id="main-foot">
 
                         </div>
