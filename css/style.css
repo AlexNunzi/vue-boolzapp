@@ -1,0 +1,91 @@
+:root{
+    
+    --bg-graphicTop: #009688;
+    --bg-body: #DADBD4;
+
+}
+
+/* DEBUG ----------------------------------------------- */
+
+.debug aside{
+    height: 100%;
+    background-color: blue;
+}
+
+.debug main{
+    height: 100%;
+    background-color: yellow;
+}
+
+.debug #main-head{
+    background-color: #EAEAEA;
+}
+
+.debug #main-foot{
+    background-color: #EAEAEA;
+}
+
+.debug #main-content{
+    background-color: #E4DDD5;
+}
+
+.debug #aside-head{
+    background-color: #EAEAEA;
+}
+
+.debug #aside-options{
+    background-color: #8EDAFC;
+    height: 140px;
+}
+
+.debug #aside-conversations{
+    background-color: #EAEAEA;
+    height: calc(100% - 210px);
+}
+
+/* REGOLE CSS ------------------------------------------ */
+
+body{
+    background-color: var(--bg-body);
+}
+
+.graphic-topBg{
+    height: 150px;
+    background-color: var(--bg-graphicTop);
+}
+
+#whatsapp{
+    background-color: red;
+    position: relative;
+    top: -125px;
+    height: 80vh;
+    min-width: 768px;
+}
+
+/* MAIN ------------------------------------------------ */
+
+#main-head{
+    height: 70px;
+}
+
+#main-content{
+    height: calc(100% - 140px);
+}
+
+#main-foot{
+    height: 70px;
+}
+
+
+
+/* ASIDE ----------------------------------------------- */
+
+#aside-head{
+    height: 70px;
+    border-right: 2px solid #D6D6D6;
+}
+
+#aside-conversations{
+    border-right: 2px solid #D6D6D6;
+    height: calc(100% - 210px);
+}
