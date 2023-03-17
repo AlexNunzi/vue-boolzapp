@@ -5,11 +5,13 @@
     --bg-head: #EAEAEA;
     --bg-options: #8EDAFC;
     --bg-search: #FAFAFA;
+    --color-options: #8EDAFC;
     --color-icons: #B1B1B1;
     --color-soft-text: #B7B8C7;
     --border-search: #F4F4F4;
     --text-link: #537B8E;
-    
+    --sent-message: #D5F9BA;
+    --received-message: #FFFFFF;
 }
 
 /* DEBUG ----------------------------------------------- */
@@ -64,6 +66,10 @@ body{
 
 .ms_bg-options{
     background-color: var(--bg-options);
+}
+
+.ms_text-options{
+    color: var(--color-options);
 }
 
 .ms_bg-conversations{
@@ -122,6 +128,11 @@ body{
     height: 80px;
 }
 
+.ms_rounded-icon{
+    height: 3rem;
+    width: 3rem;
+}
+
 #search-bar{
     height: 50px;
 }
@@ -152,6 +163,27 @@ body{
 
 #main-content{
     height: calc(100% - 140px);
+    background-image: url(../img/mine.jpg);
+}
+
+#message-list{
+    list-style: none;
+    margin: auto;
+    height: 100%;
+}
+
+.ms_message{
+    max-width: 300px;
+}
+
+.ms_sent{
+    background-color: var(--sent-message);
+    align-self: end;
+}
+
+.ms_received{
+    background-color: var(--received-message);
+    align-self: start;
 }
 
 #main-foot{
