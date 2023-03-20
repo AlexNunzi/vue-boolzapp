@@ -3,57 +3,22 @@
     --bg-graphicTop: #009688;
     --bg-body: #DADBD4;
     --bg-head: #EAEAEA;
-    --bg-options: #8EDAFC;
+    --bg-options-aside: #8EDAFC;
     --bg-search: #FAFAFA;
     --bg-selected-contact: #E9EBEB;
     --bg-messages: #FFFFFF;
+    --bg-options: #FFFFFF;
     --bg-foot: #F3EEEA;
-    --color-options: #8EDAFC;
+    --color-options-aside: #8EDAFC;
     --color-icons: #B1B1B1;
     --color-soft-text: #B7B8C7;
+    --color-message-text: #000000;
+    --color-deep-gray: #6A7375;
     /* --border-search: #F4F4F4; */
     /* --border-message: #F8F8F8; */
-    --text-link: #537B8E;
+    --text-link: #999999;
     --sent-message: #D5F9BA;
     --received-message: #FFFFFF;
-}
-
-/* DEBUG ----------------------------------------------- */
-
-.debug aside{
-    height: 100%;
-    background-color: blue;
-}
-
-.debug main{
-    height: 100%;
-    background-color: yellow;
-}
-
-.debug #main-head{
-    background-color: #EAEAEA;
-}
-
-.debug #main-foot{
-    background-color: #EAEAEA;
-}
-
-.debug #main-content{
-    background-color: #E4DDD5;
-}
-
-.debug #aside-head{
-    background-color: #EAEAEA;
-}
-
-.debug #aside-options{
-    /* background-color: #8EDAFC; */
-    /* height: 140px; */
-}
-
-.debug #aside-conversations{
-    /* background-color: #EAEAEA;
-    height: calc(100% - 210px); */
 }
 
 /* REGOLE CSS ------------------------------------------ */
@@ -68,25 +33,17 @@ body{
     background-color: var(--bg-head);
 }
 
-.ms_bg-options{
-    background-color: var(--bg-options);
+.ms_bg-options-aside{
+    background-color: var(--bg-options-aside);
 }
 
-.ms_text-options{
-    color: var(--color-options);
+.ms_text-options-aside{
+    color: var(--color-options-aside);
 }
 
 .ms_bg-conversations{
     background-color: var(--bg-search);
 }
-
-/* .ms_border-search-color{
-    border-color: var(--border-search);
-} */
-
-/* .ms_border-message-color{
-    border-color: red;
-} */
 
 .ms_link-color{
     color: var(--text-link);
@@ -99,6 +56,10 @@ body{
 .ms_graphic-topBg{
     height: 150px;
     background-color: var(--bg-graphicTop);
+}
+
+.ms_color-deep-gray{
+    color: var(--color-deep-gray);
 }
 
 #whatsapp{
@@ -163,6 +124,14 @@ body{
     height: 4rem;
 }
 
+.searchBar{
+    border: solid 2px #F4F4F4;
+}
+
+.searchBar::placeholder{
+    color: var(--text-link);
+}
+
 .ms_message-preview{
     font-size: 0.75rem;
 }
@@ -186,10 +155,67 @@ body{
     list-style: none;
     margin: auto;
     height: 100%;
+    padding: 3rem 5rem;
 }
 
 .ms_message{
-    max-width: 300px;
+    max-width: 70%;
+    min-width: 100px;
+}
+
+.ms_message .ms_messageButton i{
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 2px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.ms_messageButton{
+    position: relative;
+}
+
+.ms_sent .ms_messageButton i{
+    border-color: var(--sent-message);
+    color: var(--sent-message);
+}
+
+.ms_received .ms_messageButton i{
+    border-color: var(--received-message);
+    color: var(--received-message);
+}
+
+/* HOVER */
+.ms_message:hover .ms_messageButton i{
+    color: var(--color-message-text);
+}
+
+/* HOVER */
+.ms_messageButton:hover i{
+    border-color: var(--color-message-text);
+}
+
+.ms_visible{
+    display: block;
+}
+
+.ms_invisible{
+    display: none;
+}
+
+.ms_messageOptions{
+    background-color: var(--bg-options);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 100;
+    box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
+}
+
+/* HOVER */
+.ms_messageOptions li:hover{
+    background-color: var(--bg-selected-contact);
+    cursor: pointer;
 }
 
 .ms_sent{
