@@ -1,3 +1,5 @@
+const DateTime = luxon.DateTime;
+
 const { createApp } = Vue
 
 createApp({
@@ -203,7 +205,10 @@ createApp({
     printHourMinute(indexContact, indexMessage){
         return this.contacts[indexContact].messages[indexMessage].date.slice(11, 16);
     },
-    printDate(contact){
+    printLastMsgText(contact){
+        return contact.messages[contact.messages.length - 1].message;
+    },
+    printLastMsgDate(contact){
         return contact.messages[contact.messages.length - 1].date;
     },
     sentReceived(messageStatus){
@@ -217,12 +222,12 @@ createApp({
         this.selectedContactIndex = index;
     },
     sendNewMessage(){
-        this.contacts[this.selectedContactIndex].messages.push({date: '10/01/2020 15:51:00',
+        this.contacts[this.selectedContactIndex].messages.push({date: this.currentTime(),
                                                                 message: this.newMessage,
                                                                 status: 'sent',
                                                                 optionsShow: false});
         setTimeout(() => {
-            this.contacts[this.selectedContactIndex].messages.push({date: '10/01/2020 15:51:00',
+            this.contacts[this.selectedContactIndex].messages.push({date: this.currentTime(),
                                                                     message: 'Ok!',
                                                                     status: 'received',
                                                                     optionsShow: false});
@@ -255,6 +260,10 @@ createApp({
     },
     deleteMessage(index){
         this.contacts[this.selectedContactIndex].messages.splice(index,1);
+    },
+    currentTime(){
+        return DateTime.now().setLocale('it').toFormat('dd/LL/yyyy HH:mm:ss');
+        
     }
 }
 }).mount('#app')
