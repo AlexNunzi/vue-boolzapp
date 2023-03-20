@@ -78,7 +78,7 @@
 
                                 <!-- ASIDE CONVERSATIONS CARD -->
                                 
-                                <li v-for="(contact, i) in filteredContacts(contacts)" :class="ifSelected(i)" @click="selectContact(i)" class="border-top">
+                                <li v-for="(contact, i) in filteredContacts(contacts)" :class="ifSelected(i)" @click="selectContact(i, filteredContacts(contacts))" class="border-top">
                                     <div class="d-flex ps-4 p-2">
                                         <div class="d-flex align-items-center me-2">
                                             <img :src="contact.avatar" class="contact-img rounded-circle" alt="Contact profile image">
@@ -90,7 +90,7 @@
                                                 <p v-else class="card-text ms_message-preview ms_soft-text">(Nessuna anteprima da mostrare)</p>                                           
                                             </div>
                                             <p v-if="contact.messages.length > 0" class="ms_message-preview ms_soft-text text-nowrap">{{printLastMsgDate(contact)}}</p>
-                                            <p v-else class="ms_message-preview ms_soft-text">--:-- --/--/----</p>
+                                            <p v-else class="ms_message-preview ms_soft-text">--/--/---- --:--:--</p>
                                         </div>
                                     </div>
                                 </li>

@@ -265,8 +265,14 @@ createApp({
         } 
     },
     // CAMBIO IL VALORE DI 'selectedContactIndex' IN BASE AL VALORE DI INDEX DATO IN INGRESSO
-    selectContact(index){
-        this.selectedContactIndex = index;
+    // SE LA 'filteringString' CONTIENE ALMENO UN CARATTERE AL SUO INTERNO ASSEGNO AL VALORE
+    // DI 'selectedContactIndex' IL VALORE DELLA KEY 'startingIndex' GENERATA IN FASE DI FILTRAGGIO
+    selectContact(index, filteredContacts){
+        if(this.filteringString.length > 0){
+            this.selectedContactIndex = filteredContacts[index].startingIndex;
+        } else {
+            this.selectedContactIndex = index;
+        }
     },
     // SIMULAZIONE DI INVIO DI UN NUOVO MESSAGGIO AL CONTATTO SELEZIONATO.
     // CREAZIONE DI UN MESSAGGIO DI RISPOSTA AUTOMATICO CON SCRITTO 'OK!'
@@ -297,13 +303,21 @@ createApp({
             }
         });
     },
-    // SE LA filteringString CONTIENE ALMENO UN CARATTERE AL SUO INTERNO
+    // SE LA 'filteringString' CONTIENE ALMENO UN CARATTERE AL SUO INTERNO
     // RESTITUISCO UN ARRAY DI CONTATTI CONTENENTE SOLO CONTATTI CHE
     // ABBIANO LA KEY 'visible' UGUALE A 'true', ALTRIMENTI RESTITUISCO
     // L'ARRAY DI CONTATTI PER INTERO 
     filteredContacts(arrayOfContacts){
         if(this.filteringString.length > 0){
-            return arrayOfContacts.filter(contact => contact.visible==true);
+            const filteredContacts = [];
+            arrayOfContacts.forEach((element, i) =>{
+                if(element.visible == true){
+                    resultContact = {...element};
+                    resultContact.startingIndex = i;
+                    filteredContacts.push(resultContact);
+                }
+            })
+            return filteredContacts;
         } else {
             return arrayOfContacts;
         }
