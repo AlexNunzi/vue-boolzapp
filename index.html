@@ -113,7 +113,7 @@
                                     <img :src="contacts[selectedContactIndex].avatar" class="head-img rounded-circle me-2" alt="User profile image">
                                     <div class="ms_card-text">
                                         <h5 class="card-title fs-6 fw-normal mb-0">{{contacts[selectedContactIndex].name}}</h5>
-                                        <p class="card-text ms_message-preview ms_soft-text">Ultimo accesso oggi alle 12:00</p>                                            
+                                        <p class="card-text ms_message-preview ms_soft-text">Ultimo accesso oggi alle {{contacts[selectedContactIndex].messages[0].date}}</p>                                            
                                     </div>
                                 </div>
                                 <div>
@@ -134,7 +134,7 @@
                                 <li v-for="(message, i) in contacts[selectedContactIndex].messages" @mouseleave="closeOptions(message)" :class="sentReceived(message.status)" class="ms_message p-2 mb-2 rounded-2 shadow">
                                         <div class="d-flex justify-content-between">
                                             <p class="m-0 d-inline-block">{{message.message}}</p>
-                                            <div @click="showOptions(message)" class="ms_messageButton ms-2 d-flex justify-content-center align-items-center">
+                                            <div @click="showOptions(message)" class="ms_messageButton ms-2 d-flex justify-content-center align-self-start align-items-start">
                                                 <i class="fa-solid fa-chevron-down"></i>
                                                 <ul @click.prevent="showOptions(message)" :class="message.optionsShow ? 'ms_visible':'ms_invisible'" class="ms_messageOptions list-unstyled p-2 rounded-2">
                                                     <li class="text-nowrap p-1">Message Info</li>
