@@ -78,8 +78,8 @@
 
                                 <!-- ASIDE CONVERSATIONS CARD -->
                                 
-                                <li v-for="(contact, i) in contacts" :class="ifSelected(i)" @click="selectContact(i)" class="border-top">
-                                    <div v-if:="contact.visible" class="d-flex ps-4 p-2">
+                                <li v-for="(contact, i) in filteredContacts(contacts)" :class="ifSelected(i)" @click="selectContact(i)" class="border-top">
+                                    <div class="d-flex ps-4 p-2">
                                         <div class="d-flex align-items-center me-2">
                                             <img :src="contact.avatar" class="contact-img rounded-circle" alt="Contact profile image">
                                         </div>
