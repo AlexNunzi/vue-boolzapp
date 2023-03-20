@@ -230,12 +230,13 @@ createApp({
     // CREAZIONE DI UN MESSAGGIO DI RISPOSTA AUTOMATICO CON SCRITTO 'OK!'
     //  CHE ARRIVA DOPO UN SECONDO DALL'INVIO.
     sendNewMessage(){
-        this.contacts[this.selectedContactIndex].messages.push({date: this.currentTime(),
+        const contactIndex = this.selectedContactIndex;
+        this.contacts[contactIndex].messages.push({date: this.currentTime(),
                                                                 message: this.newMessage,
                                                                 status: 'sent',
                                                                 optionsShow: false});
         setTimeout(() => {
-            this.contacts[this.selectedContactIndex].messages.push({date: this.currentTime(),
+            this.contacts[contactIndex].messages.push({date: this.currentTime(),
                                                                     message: 'Ok!',
                                                                     status: 'received',
                                                                     optionsShow: false});

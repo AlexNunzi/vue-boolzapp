@@ -128,7 +128,7 @@
 
                         <!-- MAIN CONTENT -->
                         <div id="main-content">
-                            <ul v-if="contacts[selectedContactIndex].messages.length > 0" id="message-list" class="d-flex flex-column justify-content-end pb-1 overflow-y-scroll">
+                            <ul v-if="contacts[selectedContactIndex].messages.length > 0" id="message-list" class="d-flex flex-column flex-column-reverse pb-1 overflow-y-scroll">
 
                                 <!-- MAIN CONTENT MESSAGE -->
                                 <li v-for="(message, i) in contacts[selectedContactIndex].messages" @mouseleave="closeOptions(message)" :class="sentReceived(message.status)" class="ms_message p-2 mb-2 rounded-2 shadow">
