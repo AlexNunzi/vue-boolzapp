@@ -70,7 +70,7 @@ body{
     min-width: 768px;
 }
 
-.card img{
+.head-img{
     height: 3rem;
 }
 
@@ -111,16 +111,12 @@ body{
     list-style: none;
 }
 
-#conversation-list .card{
-    background-color: var(--bg-messages);
-}
-
 #aside-conversations{
     border-right: 2px solid #D6D6D6;
     height: calc(100% - 210px);
 }
 
-#aside-conversations .card img{
+.contact-img{
     height: 4rem;
 }
 
