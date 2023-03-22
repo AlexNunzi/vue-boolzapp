@@ -15,6 +15,7 @@ createApp({
                 name: 'Michele',
                 avatar: './img/avatar_1.jpg',
                 visible: true,
+                draft: '',
                 messages: [
                     {
                         date: '10/01/2020 16:56:00',
@@ -82,6 +83,7 @@ createApp({
                 name: 'Fabio',
                 avatar: './img/avatar_2.jpg',
                 visible: true,
+                draft: '',
                 messages: [
                     {
                         date: '20/03/2020 16:35:00',
@@ -107,6 +109,7 @@ createApp({
                 name: 'Samuele',
                 avatar: './img/avatar_3.jpg',
                 visible: true,
+                draft: '',
                 messages: [
                     {
                         date: '28/03/2020 16:15:22',
@@ -132,6 +135,7 @@ createApp({
                 name: 'Alessandro B.',
                 avatar: './img/avatar_4.jpg',
                 visible: true,
+                draft: '',
                 messages: [
                     {
                         date: '10/01/2020 15:50:00',
@@ -151,6 +155,7 @@ createApp({
                 name: 'Alessandro L.',
                 avatar: './img/avatar_5.jpg',
                 visible: true,
+                draft: '',
                 messages: [
                     {
                         date: '10/01/2020 15:50:00',
@@ -170,6 +175,7 @@ createApp({
                 name: 'Claudia',
                 avatar: './img/avatar_6.jpg',
                 visible: true,
+                draft: '',
                 messages: [
                     {
                         date: '10/01/2020 15:51:00',
@@ -195,6 +201,7 @@ createApp({
                 name: 'Federico',
                 avatar: './img/avatar_7.jpg',
                 visible: true,
+                draft: '',
                 messages: [
                     {
                         date: '10/01/2020 15:50:00',
@@ -214,6 +221,7 @@ createApp({
                 name: 'Davide',
                 avatar: './img/avatar_8.jpg',
                 visible: true,
+                draft: '',
                 messages: [
                     {
                         date: '10/01/2020 15:51:00',
@@ -248,13 +256,53 @@ createApp({
     printHourMinute(indexContact, indexMessage){
         return this.contacts[indexContact].messages[indexMessage].date.slice(11, 16);
     },
+    // RESTITUISCO LA DATA DI INVIO/RICEZIONE DEL MESSAGGIO DEL CONTATTO SELEZIONATO
+    printDate(indexContact, indexMessage){
+        return this.contacts[indexContact].messages[indexMessage].date.slice(0, 10);
+    },
+    // RESTITUISCO UNA STRINGA CONTENENTE LE INFORMAZIONI RELATIVE ALL'ULTIMO MESSAGGIO
+    // RICEVUTO DAL CONTATTO SELEZIONATO
+    findLastReceivedDate(){
+        if(this.contacts[this.selectedContactIndex].messages.length > 0){
+            let found = false;
+            let i = 0;
+            while(!found && i < this.contacts[this.selectedContactIndex].messages.length){
+                if(this.contacts[this.selectedContactIndex].messages[i].status == 'received'){
+                    found = true;
+                }
+                i++;
+            }
+            if(found == true){
+                return `Ultimo accesso il ${this.printDate(this.selectedContactIndex, i-1)} alle ${this.printHourMinute(this.selectedContactIndex, i-1)}`;
+            } else {
+                return "Ultimo accesso non disponibile";
+            }
+        } else {
+            return "Ultimo accesso non disponibile";
+        }
+    },
     // RESTITUISCO IL TESTO DELL'ULTIMO MESSAGGIO DELLA LISTA DI UN SINGOLO CONTATTO
+    // E SE SUPERA I 20 CARATTERI LA TRONCO
     printLastMsgText(contact){
-        return contact.messages[0].message;
+        const lastMessage = contact.messages[0].message;
+        if(lastMessage.length > 20){
+            return lastMessage.substring(0, 21).trim() + '...';
+        } else {
+            return lastMessage;
+        }
     },
     // RESTITUISCO LA DATA DELL'ULTIMO MESSAGGIO DELLA LISTA DI UN SINGOLO CONTATTO
     printLastMsgDate(contact){
         return contact.messages[0].date;
+    },
+    // RESTITUISCO LA BOZZA E SE IL TESTO SUPERA I 20 CARATTERI LA TRONCO
+    printDraft(contact){
+        const draft = contact.draft;
+        if(draft.length > 20){
+            return draft.substring(0, 21).trim() + '...';
+        } else {
+            return draft;
+        }
     },
     // CONTROLLO IL VALORE DELLA KEY 'status' DEL MESSAGGIO PER ASSEGNARE LA CLASSE CORRETTA
     sentReceived(messageStatus){
@@ -265,62 +313,60 @@ createApp({
         } 
     },
     // CAMBIO IL VALORE DI 'selectedContactIndex' IN BASE AL VALORE DI INDEX DATO IN INGRESSO
-    // SE LA 'filteringString' CONTIENE ALMENO UN CARATTERE AL SUO INTERNO ASSEGNO AL VALORE
-    // DI 'selectedContactIndex' IL VALORE DELLA KEY 'startingIndex' GENERATA IN FASE DI FILTRAGGIO
-    selectContact(index, filteredContacts){
-        if(this.filteringString.length > 0){
-            this.selectedContactIndex = filteredContacts[index].startingIndex;
-        } else {
-            this.selectedContactIndex = index;
-        }
+    // E NEL CASO IN CUI LA CASELLA DI INPUT NON SIA VUOTA SALVO IL SUO VALORE COME BOZZA
+    // DEL MESSAGGIO NEL VALORE DELLA KEY 'draft' DEL CONTATTO OPPORTUNO
+    selectContact(contact, index){
+        if(this.newMessage != ''){
+            this.contacts[this.selectedContactIndex].draft = this.newMessage;
+        } 
+        this.selectedContactIndex = index;
+        this.newMessage = contact.draft;
+        contact.draft = '';
     },
     // SIMULAZIONE DI INVIO DI UN NUOVO MESSAGGIO AL CONTATTO SELEZIONATO.
     // CREAZIONE DI UN MESSAGGIO DI RISPOSTA AUTOMATICO CON SCRITTO 'OK!'
-    //  CHE ARRIVA DOPO UN SECONDO DALL'INVIO.
+    // CHE ARRIVA DOPO UN SECONDO DALL'INVIO.
     sendNewMessage(){
-        const contactIndex = this.selectedContactIndex;
-        this.contacts[contactIndex].messages.unshift({date: this.currentTime(),
-                                                                message: this.newMessage,
-                                                                status: 'sent',
-                                                                optionsShow: false});
-        setTimeout(() => {
+        if(this.newMessage.trim() != ''){
+            const contactIndex = this.selectedContactIndex;
             this.contacts[contactIndex].messages.unshift({date: this.currentTime(),
-                                                                    message: 'Ok!',
-                                                                    status: 'received',
+                                                                    message: this.newMessage,
+                                                                    status: 'sent',
                                                                     optionsShow: false});
-        }, 1000);
-        this.newMessage = '';
+            this.contacts[contactIndex].draft = '';                                                                
+            this.scrollToElement();                                                                
+            setTimeout(() => {
+                this.contacts[contactIndex].messages.unshift({date: this.currentTime(),
+                                                                        message: 'Ok!',
+                                                                        status: 'received',
+                                                                        optionsShow: false});
+                if(contactIndex == this.selectedContactIndex){
+                    this.scrollToElement();
+                }
+            }, 5000);
+            this.newMessage = '';
+        }
     },
     // CONTROLLO SE IL VALORE DELLA KEY 'name' INCLUDE AL SUO INTERNO LA STRINGA COLLEGATA
     // ALLA INPUT DI ASIDE PER EFFETTUARE UN FILTRAGGIO DEI CONTATTI MODIFICANDO OPPORTUNAMENTE
     // IL VALORE DELLA KEY BOOLEANA 'visible'
     filterContactsList(){
-        this.contacts.forEach(element => {
-            if(element.name.toLowerCase().includes(this.filteringString.toLowerCase())){
-                element.visible = true;
-            } else {
-                element.visible = false;
-            }
-        });
-    },
-    // SE LA 'filteringString' CONTIENE ALMENO UN CARATTERE AL SUO INTERNO
-    // RESTITUISCO UN ARRAY DI CONTATTI CONTENENTE SOLO CONTATTI CHE
-    // ABBIANO LA KEY 'visible' UGUALE A 'true', ALTRIMENTI RESTITUISCO
-    // L'ARRAY DI CONTATTI PER INTERO 
-    filteredContacts(arrayOfContacts){
         if(this.filteringString.length > 0){
-            const filteredContacts = [];
-            arrayOfContacts.forEach((element, i) =>{
-                if(element.visible == true){
-                    resultContact = {...element};
-                    resultContact.startingIndex = i;
-                    filteredContacts.push(resultContact);
+            this.contacts.forEach(element => {
+                if(element.name.toLowerCase().includes(this.filteringString.toLowerCase())){
+                    element.visible = true;
+                } else {
+                    element.visible = false;
                 }
-            })
-            return filteredContacts;
+            });
         } else {
-            return arrayOfContacts;
+            this.contacts.forEach(element => element.visible = true);
         }
+    },
+    // RESTITUISCI LA STRINGA CON LA CLASSE CORRISPONDENTE IN BASE
+    // AL VALORE DELLA KEY BOOLEANA 'visible' DI OGNI CONTATTO
+    ifVisible(contact){
+        return contact.visible == true ? 'ms_visible':'ms_invisible'; 
     },
     // INVERTO IL VALRORE DELLA KEY BOOLEANA 'optionsShow'
     showOptions(message){
@@ -342,6 +388,13 @@ createApp({
     // GIORNO/MESE/ANNO ORE:MINUTI:SECONDI
     currentTime(){
         return DateTime.now().setLocale('it').toFormat('dd/LL/yyyy HH:mm:ss');
+    },
+    // SCROLL DELLA LISTA DEI MESSAGGI FINO IN FONDO
+    scrollToElement(){
+        element = document.getElementById('message-list');
+        if(element){
+            element.scrollTo(0, element.scrollHeight);
+        }
     }
 }
 }).mount('#app')
