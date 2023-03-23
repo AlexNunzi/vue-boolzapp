@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Boolzapp</title>
+    </head>
+    <body >
+        
+        <div id="app">
+            <div id="whatsapp" class="container">
+                <div class="row h-100">
+
+                    <!-- ASIDE -->
+                    <aside class="col-4 p-0 d-flex flex-column h-100">
+
+                        <!-- ASIDE HEAD -->
+                        <div id="aside-head">
+
+                            <!-- ASIDE HEAD CARD -->
+                            <div class="h-100 ps-2 pe-3 ms_bg-head d-flex justify-content-between">
+                                <div class="d-flex align-items-center h-100">
+                                    <img src="img/avatar_io.jpg" class="head-img rounded-circle" alt="User profile image">
+                                    <h5 class="card-title fs-6 fw-normal mb-0">Sofia</h5>
+                                </div>
+                                <div>
+                                    <div class="ms-card-options ms_icons-color d-flex align-items-center justify-content-end h-100">
+                                        <i class="fa-solid fa-circle-notch ms-3"></i>
+                                        <i class="fa-solid fa-message ms-3"></i>
+                                        <i class="fa-solid fa-ellipsis-vertical ms-3"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- ASIDE OPTIONS -->
+                        <div id="aside-options">
+
+                            <!-- ASIDE OPTIONS CARD -->
+                            <div class="rounded-0 border-0 ms_bg-options-aside">
+                                <div class="d-flex ps-4 p-3">
+                                    <div class="d-flex align-items-center me-2">
+                                        <div class="rounded-circle bg-white ms_rounded-icon d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-bell-slash ms_text-options-aside fs-5"></i>
+                                        </div>
+                                        <!-- <img src="img/avatar_io.jpg" class="rounded-circle" alt="User profile image"> -->
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="ms_card-text">
+                                            <h5 class="card-title fs-6 fw-normal mb-0">Ricevi notifiche di nuovi messaggi</h5>
+                                            <a href="#" class="card-link ms_link-color d-block">Attiva notifiche desktop</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- ASIDE CONVERSATIONS -->
+                        <div id="aside-conversations" class="ms_bg-conversations flex-grow-1 overflow-y-hidden">
+                            <!-- SEARCH -->
+                            <form id="search-bar" class="d-flex align-items-center flex-grow-1" role="search">
+                                <div class="input-group m-1">
+                                    <span class="searchBar input-group-text bg-white border-end-0 rounded-0 ps-4 pe-4 ms-card-options ms_icons-color" id="basic-addon1">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </span>
+                                    <input @keyup="filterContactsList()" v-model="filteringString" class="searchBar form-control ps-2" type="search" placeholder="Cerca o inizia una nuova chat">
+                                </div>
+                            </form>
+                            <!-- CONVERSATIONS -->
+                            <ul v-if="contacts.length > 0" id="conversations-list" class="overflow-y-auto p-0 bg-white">
+
+                                <!-- ASIDE CONVERSATIONS CARD -->
+                                
+                                <li v-for="(contact, i) in contacts" :class="[ifSelected(i), ifVisible(contact)]" @click="selectContact(contact, i)" class="border-top">
+                                    <div class="d-flex ps-4 p-2">
+                                        <div class="d-flex align-items-center me-2">
+                                            <img :src="contact.avatar" class="contact-img rounded-circle" alt="Contact profile image">
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between flex-grow-1">
+                                            <div class="ms_card-text">
+                                                <h5 class="card-title fs-6 fw-normal mb-0">{{contact.name}}</h5>
+                                                <p v-if="contact.draft != ''" class="card-text ms_message-preview ms_draft-text">Bozza: {{printDraft(contact)}}</p>
+                                                <p v-else-if="contact.messages.length > 0" class="card-text ms_message-preview ms_soft-text">{{printLastMsgText(contact)}}</p> 
+                                                <p v-else class="card-text ms_message-preview ms_soft-text">(Nessuna anteprima da mostrare)</p>                                           
+                                            </div>
+
+                                            <p v-if="contact.messages.length > 0" class="ms_message-preview ms_soft-text text-nowrap">{{printLastMsgDate(contact)}}</p>
+                                            <p v-else class="ms_message-preview ms_soft-text">--:-- --/--/----</p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                            <p v-else class="ms_soft-text">(Non ci sono chat da mostrare)</p>
+                            
+                        </div>
+                    </aside>
+
+                    <main class="col-8 p-0 h-100">
+
+                        <!-- MAIN HEAD -->
+                        <div id="main-head">
+
+                            <!-- MAIN HEAD CARD -->
+                            <div class="h-100 ps-2 pe-3 ms_bg-head d-flex justify-content-between">
+                                <div class="d-flex align-items-center h-100">
+                                    <img :src="contacts[selectedContactIndex].avatar" class="head-img rounded-circle me-2" alt="User profile image">
+                                    <div class="ms_card-text">
+                                        <h5 class="card-title fs-6 fw-normal mb-0">{{contacts[selectedContactIndex].name}}</h5>
+                                        <p class="card-text ms_message-preview ms_soft-text">{{findLastReceivedDate()}}</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="ms-card-options ms_icons-color d-flex align-items-center justify-content-end h-100">
+                                        <i class="fa-solid fa-magnifying-glass ms-3"></i>
+                                        <i class="fa-solid fa-paperclip ms-3"></i>
+                                        <i class="fa-solid fa-ellipsis-vertical ms-3"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MAIN CONTENT -->
+                        <div id="main-content">
+                            <ul v-if="contacts[selectedContactIndex].messages.length > 0" id="message-list" class="d-flex flex-column flex-column-reverse pb-1 overflow-y-scroll">
+
+                                <!-- MAIN CONTENT MESSAGE -->
+                                <li v-for="(message, i) in contacts[selectedContactIndex].messages" @mouseleave="closeOptions(message)" :class="sentReceived(message.status)" class="ms_message p-2 mb-2 rounded-2">
+                                        <div class="d-flex justify-content-between">
+                                            <p class="m-0 d-inline-block">{{message.message}}</p>
+                                            <div @click="showOptions(message)" class="ms_messageButton ms-2 d-flex justify-content-center align-self-start align-items-start">
+                                                <i class="fa-solid fa-chevron-down"></i>
+                                                <ul @click.prevent="showOptions(message)" :class="message.optionsShow ? 'ms_visible':'ms_invisible'" class="ms_messageOptions list-unstyled p-2 rounded-2">
+                                                    <li class="text-nowrap p-1">Message Info</li>
+                                                    <li class="text-nowrap p-1" @click="deleteMessage(i), showOptions(message)">Delete message</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    <p class="m-0 ms_soft-text ms_message-preview text-end"><span>{{printDate(selectedContactIndex, i)}}</span> {{printHourMinute(selectedContactIndex, i)}}</p>
+                                </li>
+
+                            </ul>
+                            <p v-else class="text-center pt-5">(Nessun messaggio da visualizzare)</p>
+                        </div>
+
+                        <!-- MAIN FOOT -->
+                        <div id="main-foot" class="d-flex justify-content-between align-items-center">
+                            <i class="fa-regular fa-face-smile ms-4 me-4 ms_color-deep-gray"></i>
+                            <input v-model="newMessage" @keyUp.enter="sendNewMessage()" type="text" class="form-control" id="floatingInput" placeholder="Scrivi un messaggio...">
+                            <i class="fa-solid fa-microphone ms-4 me-4 ms_color-deep-gray"></i>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+
+        <!-- AXIOS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- LIBRERIA LUXON -->
+        <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+        <!-- VUE JS -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>

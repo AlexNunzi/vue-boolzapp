@@ -1,0 +1,243 @@
+:root{
+    
+    --bg-graphicTop: #009688;
+    --bg-body: #DADBD4;
+    --bg-head: #EAEAEA;
+    --bg-options-aside: #8EDAFC;
+    --bg-search: #FAFAFA;
+    --bg-selected-contact: #E9EBEB;
+    --bg-messages: #FFFFFF;
+    --bg-options: #FFFFFF;
+    --bg-foot: #F3EEEA;
+    --color-options-aside: #8EDAFC;
+    --color-icons: #B1B1B1;
+    --color-soft-text: #B7B8C7;
+    --color-draft-text: #fda32d;
+    --color-message-text: #000000;
+    --color-deep-gray: #6A7375;
+    /* --border-search: #F4F4F4; */
+    /* --border-message: #F8F8F8; */
+    --text-link: #999999;
+    --sent-message: #D5F9BA;
+    --received-message: #FFFFFF;
+}
+
+/* REGOLE CSS ------------------------------------------ */
+
+body{
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--bg-body);
+    background: linear-gradient(to bottom, var(--bg-graphicTop) 20%, var(--bg-body) 0);
+}
+
+.ms_bg-head{
+    background-color: var(--bg-head);
+}
+
+.ms_bg-options-aside{
+    background-color: var(--bg-options-aside);
+}
+
+.ms_text-options-aside{
+    color: var(--color-options-aside);
+}
+
+.ms_bg-conversations{
+    background-color: var(--bg-search);
+}
+
+.ms_link-color{
+    color: var(--text-link);
+}
+
+.ms_soft-text{
+    color: var(--color-soft-text);
+}
+
+.ms_draft-text{
+    color: var(--color-draft-text);
+}
+
+.ms_color-deep-gray{
+    color: var(--color-deep-gray);
+}
+
+#whatsapp{
+    background-color: red;
+    height: calc(100vh - 50px);
+    margin-top: 25px;
+    min-width: 768px;
+}
+
+.head-img{
+    height: 3rem;
+}
+
+.ms_card-options{
+    font-size: 1.5rem;
+}
+
+.ms_icons-color{
+    color: var(--color-icons);
+}
+
+.ms_card-text a{
+    font-size: 0.75rem;
+}
+
+/* ASIDE ----------------------------------------------- */
+
+#aside-head{
+    height: 70px;
+    border-right: 2px solid #D6D6D6;
+}
+
+#aside-options{
+    height: 80px;
+}
+
+.ms_rounded-icon{
+    height: 3rem;
+    width: 3rem;
+}
+
+#search-bar{
+    height: 50px;
+}
+
+#conversations-list{
+    height: calc(100% - 50px);
+    list-style: none;
+}
+
+#aside-conversations{
+    border-right: 2px solid #D6D6D6;
+    height: calc(100% - 210px);
+}
+
+.contact-img{
+    height: 4rem;
+}
+
+.ms_contact-preview{
+    max-width: calc(100% - 4rem);
+}
+
+.searchBar{
+    border: solid 2px #F4F4F4;
+}
+
+.searchBar::placeholder{
+    color: var(--text-link);
+}
+
+.ms_message-preview{
+    font-size: 0.75rem;
+}
+
+.ms_selected-contact{
+    background-color: var(--bg-selected-contact);
+}
+
+/* MAIN ------------------------------------------------ */
+
+#main-head{
+    height: 70px;
+}
+
+#main-content{
+    height: calc(100% - 140px);
+    background-image: url(../img/mine.jpg);
+}
+
+#message-list{
+    list-style: none;
+    margin: auto;
+    height: 100%;
+    padding: 3rem 5rem;
+}
+
+.ms_message{
+    max-width: 70%;
+    min-width: 100px;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.25);
+}
+
+.ms_message:first-child .ms_messageOptions{
+    top: initial;
+    bottom: 100%;
+}
+
+.ms_message .ms_messageButton i{
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 2px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.ms_messageButton{
+    position: relative;
+}
+
+.ms_sent .ms_messageButton i{
+    border-color: var(--sent-message);
+    color: var(--sent-message);
+}
+
+.ms_received .ms_messageButton i{
+    border-color: var(--received-message);
+    color: var(--received-message);
+}
+
+/* HOVER */
+.ms_message:hover .ms_messageButton i{
+    color: var(--color-message-text);
+}
+
+/* HOVER */
+.ms_messageButton:hover i{
+    border-color: var(--color-message-text);
+}
+
+.ms_visible{
+    display: block;
+}
+
+.ms_invisible{
+    display: none;
+}
+
+.ms_messageOptions{
+    background-color: var(--bg-options);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 100;
+    box-shadow: 0px 2px 5px 2px rgba(0,0,0,0.5);
+}
+
+/* HOVER */
+.ms_messageOptions li:hover{
+    background-color: var(--bg-selected-contact);
+    cursor: pointer;
+}
+
+.ms_sent{
+    background-color: var(--sent-message);
+    align-self: end;
+}
+
+.ms_received{
+    background-color: var(--received-message);
+    align-self: start;
+}
+
+#main-foot{
+    height: 70px;
+    background-color: var(--bg-foot);
+}
+
+
+
